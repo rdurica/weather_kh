@@ -8,3 +8,4 @@ class TestHomepageView(TestCase):
     def test_homepage_available(self):
         response = self.client.get(reverse("weather:home"))
         self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertContains(response, "Hi")
