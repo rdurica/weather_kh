@@ -1,7 +1,27 @@
 {% extends "core/base.html" %}
 {% load static %}
+{% load weather %}
 {% block content %}
-    {{data.message}}
-    <br>
-    {{error_message}}
+
+    {% if error_message %}
+        <h1 style="color: red;">{{error_message}}</h1>
+    {% else %}
+        <div class="current-day">
+               {% comment %} <p>sunrise  {% data.current.sunrise "U"|date:"D d M Y" %}</p> {% endcomment %}
+               <p>sunrise {{ data.current.sunrise|unix_ts }} </p>
+               <p>sunset {{ data.current.sunset|unix_ts }}</p>
+               <p>tempreature</p>
+               <p>tempreature feels like</p>
+               <p>humidity</p>
+               <p>uv index</p>
+               <p>wind speed</p>
+               <img src="{{data.current.weather.0.icon|weather_icon}}" alt="{{data.current.weather.0.description}}">
+
+        </div>
+        {{data.current.weather}}
+
+       
+    {% endif %}
+
+    
 {% endblock %}
