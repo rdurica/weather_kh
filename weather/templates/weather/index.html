@@ -9,7 +9,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-8">
-            <div class="panel panel-default">
+            <div class="panel">
                 <div class="panel-body"> 
                    <h3><i class="fa fa-map-marker"></i> <span>Kutná Hora</span></h3>
                    <hr>
@@ -23,7 +23,7 @@
                             </div> 
                         </div>
                     </div>
-                    <div class="row" id="weather-condition">
+                    <div class="row">
                         <div class="col-3">
                             <h6>Popis</h6>
                             <p> <strong>{{data.current.weather.0.description}}</strong></p>
@@ -34,7 +34,7 @@
                         </div>
                           <div class="col-3">
                             <h6>Vítr</h6>
-                            <p><strong>{{ data.current.wind_speed }} m/s</strong></p>
+                            <p><strong>{{ data.current.wind_speed|kmh|floatformat:1}} km/h</strong></p>
                          </div>
                           <div class="col-3">
                             <h6>UV index</h6>
