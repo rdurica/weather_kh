@@ -13,7 +13,8 @@ def unix_ts(timestamp):
 
 
 def weather_icon(icon_code):
-    return f"https://openweathermap.org/img/wn/{icon_code}@2x.png"
+    icon_code = "10d"
+    return f"https://openweathermap.org/img/wn/{icon_code}@4x.png"
 
 
 register.filter(unix_ts)

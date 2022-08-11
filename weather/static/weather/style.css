@@ -1,7 +1,44 @@
 body, html {
     background: white url("images/background.jpg") no-repeat;
+    height: 100%;    
+    background-color: #000000;
+    font-family: 'Roboto', sans-serif; 
+    color: white;
 }
 
-.current-day{
-    background-color: white;
-}
+ hr {
+     margin-top: 5px;
+     border-width: 1px 0;
+     border-color: white;
+ }
+
+ .panel  {
+    -webkit-box-shadow: -1px 2px 8px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: -1px 2px 8px 0px rgba(0,0,0,0.3);
+    box-shadow: -1px 2px 8px 0px rgba(0,0,0,0.3);
+    background-color: RGBA(0, 0, 0, 0.45);
+     
+ }
+ 
+ .panel-body {
+   position: relative;
+   margin-right: 20px;
+   margin-left: 20px;
+   padding-top: 5px;
+   margin-top: 20px;
+ }
+ 
+ #temperature p {
+     font-size: 140px;
+     text-align: left;  
+ 
+ }
+ 
+ #temperature p sup {
+     vertical-align: baseline;
+     position: relative;
+     top: -65px;
+     line-height: 0;
+     font-size: 40px;
+     font-weight: 400;    
+ }

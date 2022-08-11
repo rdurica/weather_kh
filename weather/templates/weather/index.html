@@ -2,26 +2,50 @@
 {% load static %}
 {% load weather %}
 {% block content %}
-
-    {% if error_message %}
-        <h1 style="color: red;">{{error_message}}</h1>
-    {% else %}
-    <div class="grid-x">
-        <div class="cell medium-4 large-2">
-            <div class="current-day">
-                <p>sunrise {{ data.current.sunrise|unix_ts }} </p>
-                <p>sunset {{ data.current.sunset|unix_ts }}</p>
-                <p>tempreature {{ data.current.temp }} (feels like{{ data.current.feels_like }})</p>
-                <p>humidity{{ data.current.humidity }}</p>
-                <p>uv index {{ data.current.uvi }}</p>
-                <p>wind speed{{ data.current.wind_speed }}</p>
-                <img src="{{data.current.weather.0.icon|weather_icon}}" alt="{{data.current.weather.0.description}}">
-                <p>{{data.current.weather.0.description}}</p>
-             </div>
+{% if error_message %}
+<h1 style="color: red;">{{error_message}}</h1>
+{% else %}
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <div class="panel panel-default">
+                <div class="panel-body"> 
+                   <h3><i class="fa fa-map-marker"></i> <span>Kutná Hora</span></h3>
+                   <hr>
+                    <div id="display">
+                        <div class="row">
+                            <div class="col-5 text-center">
+                                <img src="{{data.current.weather.0.icon|weather_icon}}" alt="...">
+                            </div>
+                            <div class="col-7" id="temperature">
+                                <p>{{ data.current.temp|floatformat:1 }}<sup>&deg;C</sup></p>             
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="row" id="weather-condition">
+                        <div class="col-3 offset-1">
+                            <h6>Popis</h6>
+                            <p> <strong>{{data.current.weather.0.description}}</strong></p>
+                        </div>
+                          <div class="col-3">
+                            <h6>Vlhkost</h6>
+                            <p><strong>{{ data.current.humidity }}%</strong></p>
+                        </div>
+                          <div class="col-3">
+                            <h6>vítr</h6>
+                            <p><strong>{{ data.current.wind_speed }} m/s</strong></p>
+                         </div>
+                          <div class="col-2">
+                            <h6>UV index</h6>
+                            <p><strong>{{ data.current.uvi }}</strong></p>
+                          </div>        
+                    </div>
+                    <hr>
+                </div><!--/.panel-body-->
+              </div>
+            </div>
         </div>
-      </div>
-      
-    {% endif %}
-
-    
+    </div>
+</div>
+{% endif %}
 {% endblock %}
