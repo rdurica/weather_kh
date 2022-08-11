@@ -15,6 +15,13 @@ def unix_ts(timestamp):
         return None
 
 
+def kmh(ms):
+    try:
+        return float(ms) / 0.27777777777778
+    except (TypeError, ValueError):
+        return None
+
+
 def weather_icon(icon_code):
     return _get_icon_url(icon_code)
 
@@ -28,5 +35,6 @@ def _get_icon_url(icon_code, size=4):
 
 
 register.filter(unix_ts)
+register.filter(kmh)
 register.filter(weather_icon)
 register.filter(weather_icon_small)
