@@ -1,5 +1,8 @@
-body, html {
+body {
     background: white url("images/background.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     height: 100%;    
     background-color: #000000;
     font-family: 'Roboto', sans-serif; 
@@ -12,7 +15,8 @@ body, html {
      border-color: white;
  }
 
- .panel  {
+ .panel {
+    background-attachment: fixed;
     background: rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
@@ -20,34 +24,40 @@ body, html {
     -webkit-backdrop-filter: blur(5.7px);
  }
 
- .col-2{
-    width: 225px;
-    margin-left: 10px;
- }
- 
- .col-8{
-    min-width: 615px;
- }
+.container{
+    margin-top: 1vh;
+}
+.day-image{
+    width: 200px;
+    height: 200px;
+}
 
- .panel-body {
-   position: relative;
-   margin-right: 20px;
-   margin-left: 20px;
-   padding-top: 5px;
-   margin-top: 4vh;
- }
- 
- #temperature p {
-     font-size: 9rem;
-     text-align: left;  
- 
- }
- 
- #temperature p sup {
-     vertical-align: baseline;
-     position: relative;
-     top: -65px;
-     line-height: 0;
-     font-size: 40px;
-     font-weight: 400;    
- }
+/* Main panel */
+.panel-main{
+    max-width: 80vw;
+}
+.panel-main-body {
+    padding: 10px;
+}
+.temp{
+    font-size: 6rem;
+    padding: 20px;
+}
+sup{
+    vertical-align: baseline;
+    position: relative;
+    top: -40px;
+    line-height: 0;
+    font-size: 40px;
+    font-weight: 400;    
+}
+
+/* Day panel */
+.panel-day{
+    max-width: 215px;
+    margin: 10px;
+    float: left;
+}
+.panel-day-body {
+    padding: 10px;
+}

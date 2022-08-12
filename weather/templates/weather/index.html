@@ -1,108 +1,21 @@
 {% extends "weather/base.html" %}
 {% load static %}
-{% load weather %}
 {% block content %}
 {% if error_message %}
-<h1 style="color: red;">{{error_message}}</h1>
+    <h1 style="color: red;">{{error_message}}</h1>
 {% else %}
-{% comment %} {{data}} {% endcomment %}
+
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-8">
-            <div class="panel">
-                <div class="panel-body"> 
-                   <h3><i class="fa fa-map-marker"></i> <span>Kutná Hora</span></h3>
-                   <hr>
-                    <div id="display">
-                        <div class="row">
-                            <div class="col-5 text-center">
-                                <img src="{{data.current.weather.0.icon|weather_icon}}" alt="...">
-                            </div>
-                            <div class="col-7" id="temperature">
-                                <p>{{ data.current.temp|floatformat:1 }}<sup>&deg;C</sup></p>             
-                            </div> 
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-3">
-                            <h6>Popis</h6>
-                            <p> <strong>{{data.current.weather.0.description}}</strong></p>
-                        </div>
-                          <div class="col-3">
-                            <h6>Vlhkost</h6>
-                            <p><strong>{{ data.current.humidity }}%</strong></p>
-                        </div>
-                          <div class="col-3">
-                            <h6>Vítr</h6>
-                            <p><strong>{{ data.current.wind_speed|kmh|floatformat:1}} km/h</strong></p>
-                         </div>
-                          <div class="col-3">
-                            <h6>UV index</h6>
-                            <p><strong>{{ data.current.uvi }}</strong></p>
-                          </div>        
-                    </div>
-                    <hr>
-                </div><!--/.panel-body-->
-              </div>
-            </div>
-        </div>
+        {% include "weather/cards/today_card.html" with data=data %}
     </div>
 </div>
-<div class="container-fluid">
+<div class="container">
     <div class="row justify-content-center">
         {% for day in data.daily %}
-        <div class="col-2">
-            <div class="panel panel-default">
-                <div class="panel-body"> 
-                   <h3 class="text-center">{{day.dt|unix_ts}}</h3>
-                   <hr>
-                    <div id="display">
-                        <div class="row">
-                            <div class="text-center">
-                                <img src="{{day.weather.0.icon|weather_icon_small}}" alt="...">
-                                <p style="margin-top: -20px;">{{day.weather.0.description}}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" >
-                        <div class="col">
-                            <p>Ráno</p>
-                        </div>
-                        <div class="col">
-                            <p class="text-end"><strong>{{day.temp.morn|floatformat:1}}</strong></p>
-                        </div>
-                    </div>
-                    <div class="row" >
-                        <div class="col">
-                            <p>Odpoledne</p>
-                        </div>
-                        <div class="col">
-                            <p class="text-end"><strong>{{day.temp.day|floatformat:1}}</strong></p>
-                        </div>
-                    </div>
-                    <div class="row" >
-                        <div class="col">
-                            <p>Podvečer</p>
-                        </div>
-                        <div class="col">
-                            <p class="text-end"><strong>{{day.temp.eve|floatformat:1}}</strong></p>
-                        </div>
-                    </div>
-                    <div class="row" >
-                        <div class="col">
-                            <p>Noc</p>
-                        </div>
-                        <div class="col">
-                            <p class="text-end"><strong>{{day.temp.night|floatformat:1}}</strong></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            {% include "weather/cards/day_card.html" with day=day %}
         {% endfor %}
     </div>
-
-
 </div>
 {% endif %}
 {% endblock %}

@@ -1,0 +1,43 @@
+{% load weather %}
+<div class="panel panel-day">
+    <div class="panel-day-body"> 
+        <div class="row justify-content-center text-center">
+            <h3>{{day.dt|unix_ts}}</h3>
+            <hr>
+            <img class="" src="{{day.weather.0.icon|weather_icon}}" alt="...">
+            <p>{{day.weather.0.description}}</p>
+        </div>
+        <div class="row" >
+            <div class="col">
+                <p>Ráno</p>
+            </div>
+            <div class="col">
+                <p class="text-end"><strong>{{day.temp.morn|floatformat:1}}</strong></p>
+            </div>
+        </div>
+        <div class="row" >
+            <div class="col">
+                <p>Odpoledne</p>
+            </div>
+            <div class="col">
+                <p class="text-end"><strong>{{day.temp.day|floatformat:1}}</strong></p>
+            </div>
+        </div>
+        <div class="row" >
+            <div class="col">
+                <p>Podvečer</p>
+            </div>
+            <div class="col">
+                <p class="text-end"><strong>{{day.temp.eve|floatformat:1}}</strong></p>
+            </div>
+        </div>
+        <div class="row" >
+            <div class="col">
+                <p>Noc</p>
+            </div>
+            <div class="col">
+                <p class="text-end"><strong>{{day.temp.night|floatformat:1}}</strong></p>
+            </div>
+        </div>
+    </div>
+</div>

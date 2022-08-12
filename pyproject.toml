@@ -1,17 +1,18 @@
 [tool.poetry]
+authors = ["Robert Durica <r.durica@gmail.com>"]
+description = "Show weather forecast for kutna hora"
+license = "MIT"
 name = "weather_kh"
 version = "0.1.0"
-description = "Show weather forecast for kutna hora"
-authors = ["Robert Durica <r.durica@gmail.com>"]
-license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.10"
 Django = "^4.1"
+python = "^3.10"
 requests = "^2.28.1"
 
 [tool.poetry.dev-dependencies]
+coverage = "^6.4.3"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]

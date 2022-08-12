@@ -1,0 +1,33 @@
+{% load weather %}
+<div class="panel panel-main">
+    <div class="panel-main-body"> 
+       <div class="row justify-content-center">
+            <h3><i class="fa fa-map-marker"></i> <span>Kutná Hora</span></h3>
+            <hr>
+            <div class="col-1 day-image">
+                <img class="" src="{{data.current.weather.0.icon|weather_icon}}" alt="...">
+            </div>
+            <div class="col temp">
+                {{ data.current.temp|floatformat:1 }}<sup>&deg;C</sup>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <h6>Popis</h6>
+                <p> <strong>{{data.current.weather.0.description}}</strong></p>
+            </div>
+              <div class="col-3">
+                <h6>Vlhkost</h6>
+                <p><strong>{{ data.current.humidity }}%</strong></p>
+            </div>
+              <div class="col-3">
+                <h6>Vítr</h6>
+                <p><strong>{{ data.current.wind_speed|kmh|floatformat:1}} km/h</strong></p>
+             </div>
+              <div class="col-3">
+                <h6>UV index</h6>
+                <p><strong>{{ data.current.uvi }}</strong></p>
+              </div>        
+        </div>
+    <div>
+</div>
