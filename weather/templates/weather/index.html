@@ -4,18 +4,17 @@
 {% if error_message %}
     <h1 style="color: red;">{{error_message}}</h1>
 {% else %}
-
-<div class="container">
-    <div class="row justify-content-center">
-        {% include "weather/cards/today_card.html" with data=data %}
+    <div class="container">
+        <div class="row justify-content-center">
+            {% include "weather/cards/today_card.html" with data=data %}
+        </div>
     </div>
-</div>
-<div class="container">
-    <div class="row justify-content-center">
-        {% for day in data.daily %}
-            {% include "weather/cards/day_card.html" with day=day %}
-        {% endfor %}
+    <div class="container">
+        <div class="row justify-content-center">
+            {% for day in data.daily %}
+                {% include "weather/cards/day_card.html" with day=day %}
+            {% endfor %}
+        </div>
     </div>
-</div>
 {% endif %}
 {% endblock %}

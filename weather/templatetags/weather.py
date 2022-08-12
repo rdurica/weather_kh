@@ -23,18 +23,9 @@ def kmh(ms):
 
 
 def weather_icon(icon_code):
-    return _get_icon_url(icon_code)
-
-
-def weather_icon_small(icon_code):
-    return _get_icon_url(icon_code, 2)
-
-
-def _get_icon_url(icon_code, size=4):
-    return f"https://openweathermap.org/img/wn/{icon_code}@{size}x.png"
+    return f"https://openweathermap.org/img/wn/{icon_code}@4x.png"
 
 
 register.filter(unix_ts)
 register.filter(kmh)
 register.filter(weather_icon)
-register.filter(weather_icon_small)
