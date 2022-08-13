@@ -7,9 +7,9 @@ register = template.Library()
 
 def unix_ts(timestamp):
     try:
-        import locale
+        # import locale
 
-        locale.setlocale(locale.LC_ALL, "cs_CZ")
+        # locale.setlocale(locale.LC_ALL, "cs_CZ")
         return dt.utcfromtimestamp(timestamp).strftime("%A")
     except (TypeError, ValueError):
         return None
