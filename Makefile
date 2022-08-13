@@ -1,6 +1,6 @@
 #!/bin/bash
 repository = weather-kh
-tag = 0.2.0
+tag = 0.2.6
 platform = linux/amd64,linux/arm64
 
 build:
