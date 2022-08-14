@@ -8,7 +8,12 @@ loglevel = "info"
 workers = 2
 # The socket to bind
 bind = "0.0.0.0:8000"
-# Restart workers when code changes (development only!)
-reload = False
+
+# Redirect stdout/stderr to log file
+capture_output = True
+# PID file so you can easily fetch process ID
+pidfile = "/var/run/weatherkh.pid"
+
 # Write access and error info to /var/log
-accesslog = errorlog = "/var/log/weather-kh.log"
+accesslog = "/var/log/weatherkh-access.log"
+errorlog = "/var/log/weatherkh-error.log"
