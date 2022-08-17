@@ -5,7 +5,7 @@ wsgi_app = "config.wsgi:application"
 # The granularity of Error log outputs
 loglevel = "info"
 # The number of worker processes for handling requests
-workers = 2
+workers = 5
 # The socket to bind
 bind = "0.0.0.0:8000"
 
