@@ -14,6 +14,10 @@ import os
 from os import environ as env
 from pathlib import Path
 
+from dotenv import load_dotenv
+
+load_dotenv(os.getenv("ENVIRONMENT_FILE", ".env"))
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -76,8 +80,12 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": ":memory:",
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": env.get("DB_NAME"),
+        "USER": env.get("DB_USER"),
+        "PASSWORD": env.get("DB_PASSWORD"),
+        "HOST": env.get("DB_HOST"),
+        "PORT": env.get("DB_PORT"),
     }
 }
 
@@ -123,3 +131,5 @@ STATIC_ROOT = "/app/static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+CSRF_TRUSTED_ORIGINS = ["https://*.robbyte.net", "http://127.0.0.1"]
