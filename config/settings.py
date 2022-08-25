@@ -133,3 +133,13 @@ STATIC_ROOT = "/app/static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CSRF_TRUSTED_ORIGINS = ["https://*.robbyte.net", "http://127.0.0.1"]
+
+CACHE_TTL = 60 * 5
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": env.get("REDIS_LOCATION"),
+        "OPTIONS": {"CLIENT_CLASS": "django_redis.client.DefaultClient"},
+        "KEY_PREFIX": env.get("REDIS_KEY_PREFIX"),
+    }
+}
