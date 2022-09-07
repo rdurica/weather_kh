@@ -8,4 +8,4 @@ echo "-----------Apply migration--------- "
 python3 manage.py migrate
 
 echo "-----------Run gunicorn--------- "
-python3 -m gunicorn -c config/gunicorn.py
+python3 -m gunicorn -c config/gunicorn.py >/dev/null

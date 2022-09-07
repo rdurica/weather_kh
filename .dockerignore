@@ -1,0 +1,8 @@
+.*
+logs
+docker-compose.yaml
+Makefile
+poetry.lock
+pyproject.toml
+Dockerfile
+static
